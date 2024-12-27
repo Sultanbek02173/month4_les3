@@ -11,15 +11,6 @@ export const Category = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [productsPerPage] = useState(6);
     const [totalProducts, setTotalProducts] = useState(0);
-
-    useEffect(() => {
-        axios('https://api.escuelajs.co/api/v1/products')
-        .then(({data}) => {
-            setProduct(data);
-            setFilterData(data);
-        })
-        .catch((error) => {console.log(error);})
-    }, []);
     
     const filterProducts = () => {
         if(select === 'all'){
@@ -31,9 +22,17 @@ export const Category = () => {
             setFilterData(filtered);
             setTotalProducts(filtered.length);
         }
-
         setCurrentPage(1); 
     }
+
+    useEffect(() => {
+        axios('https://api.escuelajs.co/api/v1/products')
+        .then(({data}) => {
+            setProduct(data);
+            setFilterData(data);
+        })
+        .catch((error) => {console.log(error);})
+    }, []);
     
     return (
         <div className='container flexCont'>

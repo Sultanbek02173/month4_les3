@@ -6,7 +6,7 @@ export const Card = ({img, title, rate, price}) => {
     return (
         <div className="product">
             <div className="item">
-                <img className="image" src={img !== '' ? img : prod} alt="Product img" />
+                <img className="image" src={img ? img : prod} alt="Product img" />
             </div>
             <div className="description">
                 <h3>{title ? title : 'T-SHIRT WITH TAPE DETAILS'}</h3>

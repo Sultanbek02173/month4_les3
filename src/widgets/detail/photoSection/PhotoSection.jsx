@@ -1,8 +1,6 @@
 import './photoSection.css';
 
-export const PhotoSection = ({ product }) => {
-    console.log(product);
-    
+export const PhotoSection = ({ product }) => {    
     return (
         <div className='photoCont'>
             {
