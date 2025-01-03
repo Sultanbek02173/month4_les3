@@ -10,7 +10,7 @@ export const CartProduct = ({cartData, addCount, minCount, deleteCart}) => {
                     cartData.map((prod) => (
                         <div key={prod.id} className='product'>
                             <div className='productPhoto'>
-                            <img src={prod?.images[0]} alt="" />
+                            <img src={prod?.category.image} alt="" />
                         </div>
                         <div className='productDescription'>
                             <div>

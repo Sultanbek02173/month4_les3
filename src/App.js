@@ -2,12 +2,14 @@ import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import { Cart, Category, Detail, Home } from './pages';
 import { Footer, Header } from './widgets';
 import './app.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
-  const [cartData, setCartData] = useState([]);
+  const [cartData, setCartData] = useState(localStorage.getItem('carts') ? JSON.parse(localStorage.getItem('carts')) : []);
 
   const addCart = (obj) => {
+    console.log(cartData);
+    
     const idx = cartData.findIndex((item) => {
       return item.id === obj.id;
     })
@@ -23,7 +25,9 @@ function App() {
     }
   }
 
-  console.log(cartData);
+  useEffect(() => {
+    localStorage.setItem('carts', JSON.stringify(cartData))
+  }, [cartData])
   
   return (
     <BrowserRouter>
